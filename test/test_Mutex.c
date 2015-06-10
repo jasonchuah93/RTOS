@@ -9,5 +9,5 @@ void tearDown(void){}
 
 void test_mutexInitx_should_initialize_both_owner_and_queue_to_NULL()
 {
-	
+	printf("Testing");
 }
