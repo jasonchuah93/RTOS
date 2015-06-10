@@ -1,8 +1,10 @@
-#ifndef LedSM_H
-#define LedSM_H
+#ifndef _LedSM_H
+#define _LedSM_H
 
 #include <stdint.h>
 #include <State.h>
+
+#include "stm32f4xx_hal_gpio.h"
 
 typedef struct {
   State state;
