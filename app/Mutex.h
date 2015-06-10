@@ -3,11 +3,16 @@
 
 #include <stdint.h>
 #include "Task.h"
-//#include "LinkedList.h"
 
 //Task Control Block
 typedef struct{
-    TaskState state;
-    uint32_t stack;
-}
+    Tcb *owner;
+    //List *queue;
+}Mutex;
+
+
+void mutexInit(Mutex *mutex);
+void mutexAcquire(Mutex *mutex);
+void mutexRelease(Mutex *mutex);
+
 #endif // Mutex_H

@@ -1,15 +1,13 @@
 #include "unity.h"
 #include "Mutex.h"
+#include "Scheduler.h"
 
-void setUp(void)
-{
-}
 
-void tearDown(void)
-{
-}
+void setUp(void){}
 
-void test_module_generator_needs_to_be_implemented(void)
+void tearDown(void){}
+
+void test_mutexInitx_should_initialize_both_owner_and_queue_to_NULL()
 {
-	TEST_IGNORE_MESSAGE("Implement me!");
+	
 }
