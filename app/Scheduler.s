@@ -54,7 +54,26 @@ ldr    r2,  [r1,#4]
 
 str	   sp,  [r1,#4]
 
-//str
+ldr    r0,  =readyQueue //mov address of taskOne to r0
+ldr	   r1,  [r0]
+ldr    lr,  [r1,#4]
+ldr	   r0,  [lr,#32]
+ldr	   r1,  [lr,#36]
+ldr	   r2,  [lr,#32]
+ldr	   r3,  [lr,#44]
+ldr	   r4,  [lr,#0]
+ldr	   r5,  [lr,#4]
+ldr	   r6,  [lr,#8]
+ldr	   r7,  [lr,#12]
+ldr	   r8,  [lr,#16]
+ldr	   r9,  [lr,#20]
+ldr	   r10,  [lr,#24]
+ldr	   r11,  [lr,#28]
+ldr	   r12,  [lr,#48]
+
+ldr    pc,  [lr,#56]
+bx 		lr
+
 
 //b		schedular
 //push	{r4}
@@ -66,4 +85,4 @@ str	   sp,  [r1,#4]
 //push	{r10}
 //push	{r11}
 
-b 		.
+	.
