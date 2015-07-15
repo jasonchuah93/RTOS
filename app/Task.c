@@ -44,21 +44,21 @@ void initTcb(){
 	taskOneTcb.name = "thread _1";
 	taskOneTcb.sp = (uint32_t)cc;
 
-	cc.r4	= 0x44444444;
-	cc.r5	= 0x55555555;
-	cc.r6	= 0x66666666;
-	cc.r7	= 0x77777777;
-	cc.r8	= 0x88888888;
-	cc.r9	= 0x99999999;
-	cc.r10	= 0xaaaaaaaa;
-	cc.r11	= 0xbbbbbbbb;
-	cc.r0	= 0xabababab;
-	cc.r1	= 0x11111111;
-	cc.r2	= 0x22222222;
-	cc.r12	= 0xcccccccc;
-	cc.lr	= 0xFFFFFFF9;
-	cc.pc	= (uint32_t)taskOne;
-	cc.xpsr = 0x01000000;
+	cc->r4	= 0x44444444;
+	cc->r5	= 0x55555555;
+	cc->r6	= 0x66666666;
+	cc->r7	= 0x77777777;
+	cc->r8	= 0x88888888;
+	cc->r9	= 0x99999999;
+	cc->r10	= 0xaaaaaaaa;
+	cc->r11	= 0xbbbbbbbb;
+	cc->r0	= 0xabababab;
+	cc->r1	= 0x11111111;
+	cc->r2	= 0x22222222;
+	cc->r12	= 0xcccccccc;
+	cc->lr	= 0xFFFFFFF9;
+	cc->pc	= (uint32_t)taskOne;
+	cc->xpsr = 0x01000000;
 
 	runningQueue = &mainTcb;
 	readyQueue = &taskOneTcb;

@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -g2 -Map=exploreCC.map -O0 --gc-sections -LC:/Users/D203C-01/CoIDE/workspace/BlinkingWithButton -TC:/Users/D203C-01/CoIDE/workspace/BlinkingWithButton/stm32f407vg_flash.ld -g">
+      <target file="exploreCC.elf" lastModified="14e90f270d8">
+         <source file="..\obj\assembly.o" lastModified="14e90f26708"/>
+         <source file="..\obj\Scheduler.o" lastModified="14e90f268fb"/>
+         <source file="..\obj\stm32f4xx_hal_cortex.o" lastModified="14e90f267c3"/>
+         <source file="..\obj\stm32f4xx_hal.o" lastModified="14e90f2661e"/>
+         <source file="..\obj\Task.o" lastModified="14e90f262c4"/>
+         <source file="..\obj\main.o" lastModified="14e90f2641b"/>
+         <source file="..\obj\system_stm32f4xx.o" lastModified="14e90f26831"/>
+         <source file="..\obj\stm32f4xx_hal_gpio.o" lastModified="14e90f268dc"/>
+         <source file="..\obj\startup_stm32f429xx.o" lastModified="14e90f264e6"/>
+         <source file="..\obj\LedSM.o" lastModified="14e90f26573"/>
+         <source file="..\obj\stm32f4xx_hal_rcc.o" lastModified="14e90f266f9"/>
+         <source file="..\obj\stm32f4xx_it.o" lastModified="14e90f264b7"/>
+      </target>
+   </processor>
+</history>
