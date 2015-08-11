@@ -3,11 +3,13 @@
 
 #include <stdint.h>
 #include "Task.h"
+#include "LinkedList.h"
 
 //Task Control Block
 typedef struct{
     Tcb *owner;
-    //List *queue;
+    int counter;
+    LinkedList *blockTcb;
 }Mutex;
 
 

@@ -1,5 +1,4 @@
 #include "stm32f4xx_hal.h"
-#include "stm32f4xx_hal_gpio.h"
 #include "Button.h"
 
 void initButton(){
@@ -16,6 +15,4 @@ void initButton(){
   HAL_GPIO_Init(GPIOA, &pushButton);
 }
 
-int buttonStat()	{
-	return HAL_GPIO_ReadPin(GPIOA,GPIO_PIN_0);
-}
+

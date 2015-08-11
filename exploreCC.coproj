@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Project version="2G - 2.0.2" name="exploreCC">
   <Target name="exploreCC" isCurrent="1">
-    <Device manufacturerId="9" manufacturerName="ST" chipId="287" chipName="STM32F429ZI" boardId="" boardName="" coreId="4" coreName="Cortex M4"/>
+    <Device manufacturerId="9" manufacturerName="ST" chipId="287" chipName="STM32F429ZI" boardId="" boardName="" boardUrl="" coreId="4" coreName="Cortex M4"/>
     <BuildOption>
       <Compile>
         <Option name="OptimizationLevel" value="0"/>
@@ -63,45 +63,63 @@
       <Option name="org.coocox.codebugger.gdbjtag.core.autoDownload" value="1"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.verify" value="1"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.downloadFuction" value="Erase Effected"/>
-      <Option name="org.coocox.codebugger.gdbjtag.core.defaultAlgorithm" value="C:\Users\D203C-01\AppData\Roaming\CooCox\CoIDE\config\flash\CooCox-Flash\CoIDE_STM32F4xx_2048K\STM32F4xx_2048.elf"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.defaultAlgorithm" value="C:\Users\Jason\AppData\Roaming\CooCox\CoIDE\config\flash\CooCox-Flash\CoIDE_STM32F4xx_2048K\STM32F4xx_2048.elf"/>
     </DebugOption>
     <ExcludeFile/>
   </Target>
   <Components path="./"/>
   <LocalComponents/>
   <Files>
-    <File name="Library/assembly.s" path="app/assembly.s" type="1"/>
-    <File name="Hardware" path="" type="2"/>
     <File name="Library/stm32f429xx.h" path="app/stm32f429xx.h" type="1"/>
-    <File name="Library/stm32f4xx_hal_conf.h" path="app/stm32f4xx_hal_conf.h" type="1"/>
-    <File name="Library/system_stm32f4xx.h" path="app/system_stm32f4xx.h" type="1"/>
     <File name="Hardware/stm32f4xx_hal.h" path="../STM32Cube_FW_F4_V1.5.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h" type="1"/>
+    <File name="Library/Message.h" path="app/Message.h" type="1"/>
+    <File name="Library/Led.h" path="app/Led.h" type="1"/>
     <File name="Library/Task.h" path="app/Task.h" type="1"/>
-    <File name="Core/core_cmFunc.h" path="../STM32Cube_FW_F4_V1.5.0/Drivers/CMSIS/Include/core_cmFunc.h" type="1"/>
+    <File name="Library/ButtonSM.h" path="app/ButtonSM.h" type="1"/>
     <File name="Library/Scheduler.s" path="app/Scheduler.s" type="1"/>
     <File name="Library/stm32f4xx.h" path="app/stm32f4xx.h" type="1"/>
-    <File name="Hardware/stm32f4xx_hal_cortex.c" path="../STM32Cube_FW_F4_V1.5.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c" type="1"/>
-    <File name="Library/stm32f4xx_it.h" path="app/stm32f4xx_it.h" type="1"/>
     <File name="Core/core_cmSimd.h" path="../STM32Cube_FW_F4_V1.5.0/Drivers/CMSIS/Include/core_cmSimd.h" type="1"/>
-    <File name="Hardware/stm32f4xx_hal_rcc.h" path="../STM32Cube_FW_F4_V1.5.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h" type="1"/>
-    <File name="Hardware/stm32f4xx_hal.c" path="../STM32Cube_FW_F4_V1.5.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c" type="1"/>
     <File name="Library/LedSM.h" path="app/LedSM.h" type="1"/>
-    <File name="Core/core_cmInstr.h" path="../STM32Cube_FW_F4_V1.5.0/Drivers/CMSIS/Include/core_cmInstr.h" type="1"/>
+    <File name="Library/Led.c" path="app/Led.c" type="1"/>
+    <File name="Library/Semaphore.h" path="app/Semaphore.h" type="1"/>
     <File name="Library/Task.c" path="app/Task.c" type="1"/>
-    <File name="Library/main.c" path="app/main.c" type="1"/>
     <File name="Library/system_stm32f4xx.c" path="app/system_stm32f4xx.c" type="1"/>
+    <File name="Library/main.c" path="app/main.c" type="1"/>
+    <File name="Library/State.h" path="app/State.h" type="1"/>
     <File name="Hardware/stm32f4xx_hal_gpio.c" path="../STM32Cube_FW_F4_V1.5.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c" type="1"/>
+    <File name="Library/Mutex.h" path="app/Mutex.h" type="1"/>
     <File name="Core/core_cm4.h" path="../STM32Cube_FW_F4_V1.5.0/Drivers/CMSIS/Include/core_cm4.h" type="1"/>
+    <File name="Library/Button.c" path="app/Button.c" type="1"/>
+    <File name="Library/Scheduler.h" path="app/Scheduler.h" type="1"/>
     <File name="Library/startup_stm32f429xx.s" path="app/startup_stm32f429xx.s" type="1"/>
     <File name="Hardware/stm32f4xx_hal_def.h" path="../STM32Cube_FW_F4_V1.5.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h" type="1"/>
-    <File name="Library/main.h" path="app/main.h" type="1"/>
-    <File name="Hardware/stm32f4xx_hal_cortex.h" path="../STM32Cube_FW_F4_V1.5.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h" type="1"/>
     <File name="Library/LedSM.c" path="app/LedSM.c" type="1"/>
-    <File name="Hardware/stm32f4xx_hal_gpio.h" path="../STM32Cube_FW_F4_V1.5.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h" type="1"/>
     <File name="Hardware/stm32f4xx_hal_rcc.c" path="../STM32Cube_FW_F4_V1.5.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c" type="1"/>
+    <File name="Library/ButtonSM.c" path="app/ButtonSM.c" type="1"/>
+    <File name="Library/stm32f4xx_it.c" path="app/stm32f4xx_it.c" type="1"/>
+    <File name="Library/LinkedList.c" path="app/LinkedList.c" type="1"/>
+    <File name="Library/assembly.s" path="app/assembly.s" type="1"/>
+    <File name="Hardware" path="" type="2"/>
+    <File name="Library/stm32f4xx_hal_conf.h" path="app/stm32f4xx_hal_conf.h" type="1"/>
+    <File name="Library/Mutex.c" path="app/Mutex.c" type="1"/>
+    <File name="Library/system_stm32f4xx.h" path="app/system_stm32f4xx.h" type="1"/>
+    <File name="Library/MailBox.h" path="app/MailBox.h" type="1"/>
+    <File name="Core/core_cmFunc.h" path="../STM32Cube_FW_F4_V1.5.0/Drivers/CMSIS/Include/core_cmFunc.h" type="1"/>
+    <File name="Hardware/stm32f4xx_hal_cortex.c" path="../STM32Cube_FW_F4_V1.5.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c" type="1"/>
+    <File name="Library/stm32f4xx_it.h" path="app/stm32f4xx_it.h" type="1"/>
+    <File name="Library/LinkedList.h" path="app/LinkedList.h" type="1"/>
+    <File name="Hardware/stm32f4xx_hal_rcc.h" path="../STM32Cube_FW_F4_V1.5.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h" type="1"/>
+    <File name="Hardware/stm32f4xx_hal.c" path="../STM32Cube_FW_F4_V1.5.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c" type="1"/>
+    <File name="Core/core_cmInstr.h" path="../STM32Cube_FW_F4_V1.5.0/Drivers/CMSIS/Include/core_cmInstr.h" type="1"/>
+    <File name="Library/Timer.h" path="app/Timer.h" type="1"/>
+    <File name="Library/Message.c" path="app/Message.c" type="1"/>
+    <File name="Library/main.h" path="app/main.h" type="1"/>
+    <File name="Hardware/stm32f4xx_hal_gpio.h" path="../STM32Cube_FW_F4_V1.5.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h" type="1"/>
+    <File name="Hardware/stm32f4xx_hal_cortex.h" path="../STM32Cube_FW_F4_V1.5.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h" type="1"/>
+    <File name="Library/Timer.c" path="app/Timer.c" type="1"/>
+    <File name="Library/Button.h" path="app/Button.h" type="1"/>
     <File name="Library" path="" type="2"/>
     <File name="Core" path="" type="2"/>
-    <File name="Library/stm32f4xx_it.c" path="app/stm32f4xx_it.c" type="1"/>
   </Files>
   <Bookmarks/>
 </Project>

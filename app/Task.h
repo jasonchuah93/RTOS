@@ -33,7 +33,9 @@ typedef struct {
 extern uint8_t taskOneStack[1028];
 extern uint8_t taskTwoStack[1028];
 
-void taskOne(void);
 void initTcb(void);
+void taskOne(void);
+void taskTwo(void);
+
 
 #endif // __TASK_H

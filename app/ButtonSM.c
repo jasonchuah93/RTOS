@@ -1,8 +1,7 @@
-#include "stdio.h"
+#include <stdio.h>
+#include "Button.h"
 #include "ButtonSM.h"
 #include "Message.h"
-#include "Button.h"
-#include "Timer.h"
 
 void buttonInitData(ButtonData *data){
   data->state = RELEASE;

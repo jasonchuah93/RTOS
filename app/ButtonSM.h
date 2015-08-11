@@ -1,11 +1,11 @@
 #ifndef ButtonSM_H
 #define ButtonSM_H
 
-#include <State.h>
+#include "State.h"
 
 typedef struct {
   State state;
- }ButtonData;
+}ButtonData;
 
 void buttonInitData(ButtonData *data);
 void buttonSM(ButtonData *data);

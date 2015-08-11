@@ -2,10 +2,10 @@
 #include "LedSM.h"
 #include "Message.h"
 #include "Button.h"
-#include "Timer.h"
 
 void ledInitData(LedData *data){
   data->state = LED_OFF;
+  data->time = 0;
 }
 
 void ledSM(LedData *data){
