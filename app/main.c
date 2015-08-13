@@ -15,7 +15,7 @@ int main(void)
 {
 
 	TaskBlock LED1_tb;
-
+	ButtonData buttonData;
 	initTaskBlock(&LED1_tb);
 	initButton();
 	initLED(LED1);
@@ -26,7 +26,7 @@ int main(void)
 	yield_LED1(&LED1_tb);
 	taskSwitch();
 
-	while(1){}
+	while(1){//buttonSM(&buttonData); ledSM(&LED1_tb);}
 }
 
 void initSysTick(){
