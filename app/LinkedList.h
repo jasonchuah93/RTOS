@@ -1,14 +1,12 @@
 #ifndef LinkedList_H
 #define LinkedList_H
 
-typedef struct Element_t
-{
+typedef struct Element_t{
 	struct Element_t *next;
 	void *data;
 }Element;
 
-typedef struct
-{
+typedef struct{
 	Element *head;
 	Element *tail;
 	int length;

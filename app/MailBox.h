@@ -3,7 +3,6 @@
 
 #include "Mutex.h"
 #include "Semaphore.h"
-
 typedef struct{
     int *buffer;
     int size;
@@ -17,5 +16,4 @@ typedef struct{
 void mailBoxInit(MailBox *mailbox, int size);
 void mailBoxSendMessage(MailBox *mailbox, int message);
 int mailBoxGetMessage(MailBox *mailbox);
-
 #endif // MailBox_H
