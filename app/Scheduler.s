@@ -12,10 +12,13 @@
 .extern runningQueue
 
 .equ TCB_NEXT , 0
+.equ TCB_NAME , 4
+.equ TCB_SP   , 8
 
   .section  .text.taskSwitch
   .type  taskSwitch, %function
 taskSwitch:
+	push   {lr}
 	ldr    r0,  =#0xabababab
  	ldr    r1,  =#0x11111111
  	ldr    r2,  =#0x22222222
@@ -30,41 +33,27 @@ taskSwitch:
  	ldr    r11, =#0xbbbbbbbb
  	ldr    r12, =#0xcccccccc
  	ldr    lr,  =#0xdddddddd
- 	push	{r0}
  	b		 .
 
 .align 8
 .type  SysTick_Handler, %function
  SysTick_Handler:
-// Your Code Starts here :
-// Push the rest of the register
-
-push	{r4-r11}
-
-ldr    r0,  =runningTcb //mov address of runningQ to r0
-ldr    r1,  [r0]		   //deref runningQ, then content mov to r1
-ldr    r2,  [r1,#4]
-
-str	   sp,  [r1,#4]
-
-ldr    r0,  =readyQueue //mov address of taskOne to r0
-ldr	   r1,  [r0]
-ldr    lr,  [r1,#4]
-ldr	   r0,  [lr,#32]
-ldr	   r1,  [lr,#36]
-ldr	   r2,  [lr,#32]
-ldr	   r3,  [lr,#44]
-ldr	   r4,  [lr,#0]
-ldr	   r5,  [lr,#4]
-ldr	   r6,  [lr,#8]
-ldr	   r7,  [lr,#12]
-ldr	   r8,  [lr,#16]
-ldr	   r9,  [lr,#20]
-ldr	   r10,  [lr,#24]
-ldr	   r11,  [lr,#28]
-ldr	   r12,  [lr,#48]
-
-ldr    pc,  [lr,#56]
+push	{r4-r11} 			//Push registers into stack
+ldr    r4,  =runningQueue   //mov address of runningQ to r0
+ldr    r4,  [r4]		    //deref runningQ, then content mov to r1
+str    sp,  [r4,#TCB_SP]
+push   {r7,lr}
+ldr    r0,  =readyQueue     //load readyQueue into r0
+bl	   listRemoveFirst
+//ldr	   r5,r0
+ldr    r1, = runningQueue   //load runningQueue into r1
+str    r0, [r1]
+ldr    r0, =readyQueue
+mov    r1,r4
+bl     listAddLast
+pop    {r7,lr}
+ldr	   sp,  [r5,#TCB_SP]
+pop    {r4-r11}
 bx 		lr
 
 

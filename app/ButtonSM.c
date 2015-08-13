@@ -10,13 +10,13 @@ void buttonInitData(ButtonData *data){
 void buttonSM(ButtonData *data){
   switch(data->state){
   case RELEASE:
-    if(isButtonPressed() == true ){
+    if(isButtonPressed()){
 		msg = CHANGE_MODE; //Pass the message to LED
 		data->state = PRESS;
     }
   break;
   case PRESS:
-    if(isButtonPressed() == false ){
+    if(isButtonNotPressed() ){
 		msg = DO_NOTHING;
 		data->state = RELEASE;
     }

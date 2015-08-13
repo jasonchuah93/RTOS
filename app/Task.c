@@ -28,11 +28,7 @@ LinkedList readyQueue;
 Tcb mainTcb;
 Tcb taskOneTcb;
 Tcb taskTwoTcb;
-Tcb *runningTcb;
-
-CpuContext Context;
-CpuContext *cc = (CpuContext *)(((uint32_t)(&taskOneStack[1024])) - sizeof(CpuContext));
-CpuContext *cc2 = (CpuContext *)(((uint32_t)(&taskOneStack[1024])) - sizeof(CpuContext));
+Tcb *runningQueue;
 
 void taskOne(void){
 	int counter = 0x00000000;
@@ -49,11 +45,18 @@ void taskTwo(void){
 }
 
 void initTcb(){
+	CpuContext *cc = (CpuContext *)(((uint32_t)(&taskOneStack[1024])) - sizeof(CpuContext));
+	CpuContext *cc2 = (CpuContext *)(((uint32_t)(&taskOneStack[1024])) - sizeof(CpuContext));
+
 	mainTcb.name = "main thread";
 	mainTcb.sp = 0;
 	taskOneTcb.name = "thread _1";
 	taskOneTcb.sp = (uint32_t)cc;
 
+	cc->r0	= 0x00000001;
+	cc->r1	= 0x11111111;
+	cc->r2	= 0x22222222;
+	cc->r3	= 0x33333333;
 	cc->r4	= 0x44444444;
 	cc->r5	= 0x55555555;
 	cc->r6	= 0x66666666;
@@ -62,33 +65,31 @@ void initTcb(){
 	cc->r9	= 0x99999999;
 	cc->r10	= 0xaaaaaaaa;
 	cc->r11	= 0xbbbbbbbb;
-	cc->r0	= 0xabababab;
-	cc->r1	= 0x11111111;
-	cc->r2	= 0x22222222;
 	cc->r12	= 0xcccccccc;
 	cc->lr	= 0xFFFFFFF9;
-	cc->pc	= (uint32_t)taskOne;
+	cc->pc	= (uint32_t*)taskOne;
 	cc->xpsr = 0x01000000;
 
 	taskTwoTcb.name = "thread _2";
 	taskTwoTcb.sp = (uint32_t)cc2;
 
-	cc2->r4	= 0xFFFFFFF9;
-	cc2->r5	= 0xcccccccc;
-	cc2->r6	= 0x22222222;
-	cc2->r7	= 0x11111111;
-	cc2->r8	= 0xabababab;
-	cc2->r9	= 0xbbbbbbbb;
-	cc2->r10= 0xaaaaaaaa;
-	cc2->r11= 0x99999999;
-	cc2->r0	= 0x88888888;
-	cc2->r1	= 0x77777777;
-	cc2->r2	= 0x66666666;
-	cc2->r12= 0x55555555;
-	cc2->lr	= 0x44444444;
-	cc2->pc	= (uint32_t)taskTwo;
+	cc2->r0	 = 0xFFFFFFF9;
+	cc2->r1	 = 0xcccccccc;
+	cc2->r2	 = 0xbbbbbbbb;
+	cc2->r3	 = 0xaaaaaaaa;
+	cc2->r4	 = 0x99999999;
+	cc2->r5	 = 0x88888888;
+	cc2->r6  = 0x77777777;
+	cc2->r7  = 0x66666666;
+	cc2->r8	 = 0x55555555;
+	cc2->r9	 = 0x44444444;
+	cc2->r10 = 0x33333333;
+	cc2->r11 = 0x22222222;
+	cc2->r12 = 0x11111111;
+	cc2->lr	 = 0x00000001;
+	cc2->pc	 = (uint32_t*)taskTwo;
 	cc2->xpsr = 0x01000000;
 
-	runningTcb = &mainTcb;
+	runningQueue = &mainTcb;
 	createLinkedList(&taskOneTcb);
 }
