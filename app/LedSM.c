@@ -1,50 +1,55 @@
-#include "stdio.h"
+#include <stdio.h>
 #include "LedSM.h"
+#include "Led.h"
 #include "Message.h"
 #include "Button.h"
 
-void ledInitData(LedData *data){
-  data->state = LED_OFF;
-  data->time = 0;
+void ledInitData(TaskBlock *tb){
+	tb->state = LED_OFF;
+	tb->time = 0;
 }
 
-void ledSM(LedData *data){
-	switch(data->state){
+void ledSM(TaskBlock *tb){
+	switch(tb->state){
 	case LED_OFF:
+		turnOffLED(PORTG,LED1);
 		if(msg == CHANGE_MODE){
-			data->state = LED_BLINKING_ON;
+			tb->state = LED_BLINKING_ON;
 			msg = DO_NOTHING;
 		}
 	break;
 	case LED_BLINKING_ON:
+		turnOnLED(PORTG,LED1);
 		if(msg == CHANGE_MODE){
-			data->state = LED_ON;
+			tb->state = LED_ON;
 			msg = DO_NOTHING;
 		}else{
 			if(getCurrentTime()==1){
-				data->state = LED_BLINKING_OFF;
+				tb->state = LED_BLINKING_OFF;
 			}
 		}
 	break;
 	case LED_BLINKING_OFF:
+		turnOffLED(PORTG,LED1);
 		if(msg == CHANGE_MODE){
-			data->state = LED_ON;
+			tb->state = LED_ON;
 			msg = DO_NOTHING;
 		}else{
 			if(getCurrentTime()==1){
-				data->state = LED_BLINKING_ON;
+				tb->state = LED_BLINKING_ON;
 			}
 		}
 	break;
 	case LED_ON:
+		turnOnLED(PORTG,LED1);
 		if(msg == CHANGE_MODE){
-			data->state = LED_OFF;
+			tb->state = LED_OFF;
 			msg = DO_NOTHING;
 		}
 	break;
  
 	default:
-		printf("Error: unknown state encounter in ledSM : %d\n",data->state);
+		printf("Error: unknown state encounter in ledSM : %d\n",tb->state);
 	break;
 	}
 }

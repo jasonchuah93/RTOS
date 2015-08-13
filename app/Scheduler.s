@@ -48,12 +48,12 @@ bl	   listRemoveFirst
 //ldr	   r5,r0
 ldr    r1, = runningQueue   //load runningQueue into r1
 str    r0, [r1]
-ldr    r0, =readyQueue
+ldr    r0, =readyQueue      //load readyQueue into r0
 mov    r1,r4
-bl     listAddLast
+bl     listAddLast          //branch link function listAddLast
 pop    {r7,lr}
 ldr	   sp,  [r5,#TCB_SP]
-pop    {r4-r11}
+pop    {r4-r11}				//Pop out register r4-r11
 bx 		lr
 
 

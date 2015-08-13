@@ -23,11 +23,10 @@
 uint8_t taskOneStack[1028];
 uint8_t taskTwoStack[1028];
 
-LinkedList readyQueue;
-
 Tcb mainTcb;
 Tcb taskOneTcb;
 Tcb taskTwoTcb;
+Tcb *readyQueue;
 Tcb *runningQueue;
 
 void taskOne(void){
@@ -91,5 +90,7 @@ void initTcb(){
 	cc2->xpsr = 0x01000000;
 
 	runningQueue = &mainTcb;
+	readyQueue = &taskOneTcb;
 	createLinkedList(&taskOneTcb);
+
 }

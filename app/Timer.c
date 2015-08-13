@@ -23,4 +23,12 @@ int delay(uint32_t delayCycle){
 	previousTime = getCurrentTime();
 }
 
+int halfSecHasNotExpire(){
+	if(getCurrentTime() - 0 < 1000){
+		return 1;
+	}else{
+		currentTime = 0;
+		return 0;
+	}
+}
 

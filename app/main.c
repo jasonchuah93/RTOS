@@ -6,29 +6,27 @@
 #include "Led.h"
 #include "LedSM.h"
 #include "Timer.h"
+#include "liteTasker.h"
 
 void testFunc(void);
 void taskSwitch(void);
 
 int main(void)
 {
-	LedData Ldata;
-	ButtonData Bdata;
+
+	TaskBlock LED1_tb;
+
+	initTaskBlock(&LED1_tb);
 	initButton();
 	initLED(LED1);
-	//buttonInitData(&Bdata);
-	//ledInitData(&Ldata);
+	initLED(LED2);
 
 	initSysTick();
 	initTcb();
+	yield_LED1(&LED1_tb);
 	taskSwitch();
 
-	while(1)
-		{
-			//updateCurrentTime();
-			//buttonSM(&Bdata);
-			//ledSM(&Ldata);
-		}
+	while(1){}
 }
 
 void initSysTick(){
@@ -36,3 +34,4 @@ void initSysTick(){
 		while(1);
 	}
 }
+
